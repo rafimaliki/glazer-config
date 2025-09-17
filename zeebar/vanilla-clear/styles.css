@@ -3,7 +3,7 @@
 body {
   color: rgb(255 255 255 / 90%);
   font-family: ui-monospace, monospace;
-  font-size: 12px;
+  font-size: 10px;
   overflow: hidden;
 }
 
@@ -15,15 +15,16 @@ body,
 }
 
 #root {
-  background: rgba(0, 0, 0, 40%);
+  background: transparent;
 }
 
 .app {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
   height: 100%;
-  padding: 4px 1.5vw;
+  padding: 6px 6px 0px 6px;
+  position: relative;
 }
 
 .left,
@@ -31,14 +32,32 @@ body,
 .right {
   display: flex;
   align-items: center;
+  background: rgba(45, 45, 45, 0.9);
+  border-radius: 8px;
+  padding: 5px 12px;
+  backdrop-filter: blur(10px);
+  /* border: 2px solid #0c215a92; */
+  font-size: 10px;
+  box-sizing: border-box;
+  height: 24px !important;
+  gap: 8px;
+}
+
+.left {
+  margin-right: auto;
 }
 
 .center {
-  justify-self: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
 }
 
 .right {
-  justify-self: end;
+  margin-left: auto;
+  width: auto;
+  min-width: fit-content;
 }
 
 .logo,
@@ -49,42 +68,59 @@ body,
 .cpu,
 .battery,
 .audio {
-  margin-right: 20px;
+  font-size: 10px;
 }
 
 .workspaces {
   display: flex;
   align-items: center;
+  gap: 4px;
 }
 
 .workspace {
-  background: rgb(255 255 255 / 5%);
-  margin-right: 4px;
-  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-right: 3px;
+  padding: 3px 6px;
   color: rgb(255 255 255 / 90%);
   border: none;
-  border-radius: 2px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 9px;
+  min-width: 20px;
+  text-align: center;
 
   &.displayed {
-    background: rgb(255 255 255 / 5%);
+    background: rgba(255, 255, 255, 0.15);
   }
 
   &.focused,
   &:hover {
-    background: rgb(255 255 255 / 50%);
+    background: rgba(255, 255, 255, 0.3);
+    /* transform: translateY(-1px); */
   }
+}
+
+.workspace:last-child {
+  margin-right: 0;
 }
 
 .binding-mode,
 .tiling-direction {
-  background: rgb(255 255 255 / 15%);
+  background: rgba(255, 255, 255, 0.15);
   color: rgb(255 255 255 / 90%);
-  border-radius: 2px;
+  border-radius: 5px;
   line-height: 1;
-  padding: 4px 8px;
+  padding: 3px 6px;
   border: 0;
   cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 9px;
+}
+
+.binding-mode:hover,
+.tiling-direction:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .binding-mode {
@@ -111,12 +147,20 @@ body,
 }
 
 .battery-green {
-  /* color: rgb(79, 239, 79); */
+  color: rgb(79, 239, 79);
 }
 
 i {
   color: rgb(255 255 255 / 90%);
-  margin-right: 7px;
+  margin-right: 4px;
+  font-size: 9px;
+}
+
+.network {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .audio-modal {
@@ -124,13 +168,14 @@ i {
   top: 100%;
   right: 0;
   margin-top: 8px;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(45, 45, 45, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  padding: 12px;
+  border-radius: 12px;
+  padding: 16px;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  min-width: 120px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  min-width: 140px;
 }
 
 .audio-modal input[type="range"] {
@@ -140,6 +185,7 @@ i {
   background: rgba(255, 255, 255, 0.2);
   outline: none;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 .audio-modal input[type="range"]::-webkit-slider-thumb {
