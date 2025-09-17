@@ -253,11 +253,11 @@ keybindings:
   - commands: ["shell-exec cmd"]
     bindings: ["alt+enter"]
 
-  # Focus the next/previous active workspace defined in `workspaces` config.
-  - commands: ["focus --next-active-workspace"]
-    bindings: ["alt+s"]
-  - commands: ["focus --prev-active-workspace"]
-    bindings: ["alt+a"]
+  # # Focus the next/previous active workspace defined in `workspaces` config.
+  # - commands: ["focus --next-active-workspace"]
+  #   bindings: ["alt+s"]
+  # - commands: ["focus --prev-active-workspace"]
+  #   bindings: ["alt+a"]
 
   # Focus the workspace that last had focus.
   - commands: ["focus --recent-workspace"]
@@ -314,26 +314,26 @@ keybindings:
   - commands: ["move --workspace 9", "focus --workspace 9"]
     bindings: ["alt+shift+9"]
 
-    # custom bindings to open windows terminal using ctrl+shift+y
+    # custom bindings to open windows terminal using ctrl+shift+t
   - commands: ["shell-exec wt"]
     bindings: ["ctrl+alt+t"]
 
-    # open terminal with alernating tiling mode with ctrl+shift+h
+    # open terminal with alernating tiling mode with ctrl+shift+y
   - commands: ["toggle-tiling-direction", "shell-exec wt"]
     bindings: ["ctrl+alt+y"]
 
-    # open vscode with ctrl shift u
+    # open vscode with ctrl shift v
   - commands: ["shell-exec code >nul 2>&1 &"]
     bindings: ["ctrl+alt+v"]
 
-    # open fireforx with ctrl shift i
+    # open fireforx with ctrl shift f
   - commands: ["shell-exec firefox"]
     bindings: ["ctrl+alt+f"]
 
-    # open notepad with ctrl shif o
+    # open notepad with ctrl shif n
   - commands: ["shell-exec notepad"]
     bindings: ["ctrl+alt+n"]
 
-    # open file explorer with ctrl shift p
+    # open file explorer with ctrl shift e
   - commands: ["shell-exec explorer"]
     bindings: ["ctrl+alt+e"]
